@@ -1,6 +1,7 @@
 import http from "./http.js";
 import ENDPOINTS from "./endpoints.js";
 
+
 export const fetchAllUser = () => http.get(ENDPOINTS.USERS);
 export const getUserByID = ({id}) => http.get(`${ENDPOINTS.USERS}/${id}`);
 export const updateUserByID = ({id, formdata}) => {
