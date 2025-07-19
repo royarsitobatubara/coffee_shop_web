@@ -1,6 +1,7 @@
 import http from "./http.js";
 import ENDPOINTS from "./endpoints.js";
 
+
 export const fetchAllProducts = () => http.get(ENDPOINTS.PRODUCTS);
 
 export const getProductByID = (id) => http.get(`${ENDPOINTS.PRODUCTS}/${id}`);

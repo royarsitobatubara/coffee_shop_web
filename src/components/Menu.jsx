@@ -40,7 +40,7 @@ function Menu() {
   }, [])
 
   return (
-    <div id='menu' className='pt-20 px-30 pb-10 text-center flex flex-col gap-4 min-h-dvh'>
+    <section id='menu' className='pt-20 px-30 pb-10 text-center flex flex-col gap-4 min-h-dvh'>
       <h1 className='text-3xl text-[var(--primary)] font-bold'>Our Special Coffee</h1>
       <h3 className='text-sm text-[var(--primary)] font-semibold'>Categories</h3>
 
@@ -83,7 +83,7 @@ function Menu() {
             : <p className='text-center'>Tidak Ada Produk</p>
         }
       </div>
-    </div>
+    </section>
   )
 }
 
