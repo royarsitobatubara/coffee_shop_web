@@ -15,40 +15,44 @@ function Menu() {
       const res = await productService.fetchAllProducts()
       const data = res.data.data
       setProducts(data)
-      setFilteredProducts(data)  // tampilkan semua di awal
+      setFilteredProducts(data)
     } catch (error) {
       console.log(`Gagal ambil data product`)
     }
   }
 
-  const filterCategoryProduct = (category) => {
-    setCategorySelect(category)
-    if (category === "All") {
-      setFilteredProducts(products)
-    } else {
-      const filtered = products.filter(itm => itm.kategori === category)
-      setFilteredProducts(filtered)
+    const filterCategoryProduct = (category) => {
+        setCategorySelect(category)
+        if (category === "All") {
+            setFilteredProducts(products)
+        } else {
+            const filtered = products.filter(itm => 
+                itm.category.toLowerCase() === category.toLowerCase()
+            )
+            setFilteredProducts(filtered)
+        }
     }
-  }
+
+
 
   useEffect(() => {
     fetchAllProduct()
   }, [])
 
   return (
-    <div id='menu' className='pt-20 px-30 pb-10 text-center flex flex-col gap-4'>
+    <div id='menu' className='pt-20 px-30 pb-10 text-center flex flex-col gap-4 min-h-dvh'>
       <h1 className='text-3xl text-[var(--primary)] font-bold'>Our Special Coffee</h1>
       <h3 className='text-sm text-[var(--primary)] font-semibold'>Categories</h3>
 
       {/* Tombol Filter */}
-      <div className='flex items-center justify-center gap-x-4 w-full font-semibold text-base *:cursor-pointer'>
+      <div className='flex items-center justify-center gap-x-4 w-full font-semibold text-base *:cursor-pointer *:select-none'>
         {categoryList.map((itm, idx) => (
           <button
             key={idx}
             type='button'
             onClick={() => filterCategoryProduct(itm)}
             className={`px-4 py-1 active:scale-95 rounded-md shadow-md transition-all duration-200 ${
-              categorySelect === itm ? 'bg-[var(--primary)] text-white' : 'bg-gray-400 hover:bg-[var(--primary)] hover:text-white'
+              categorySelect === itm ? 'bg-[var(--primary)] text-white' : 'bg-[var(--white2)] hover:bg-[var(--primary)] hover:text-white'
             }`}
           >
             {itm}
@@ -62,8 +66,7 @@ function Menu() {
           filteredProducts.length > 0
             ? (
               <>
-                <button><FaChevronCircleLeft size={25} /></button>
-                <div className='grid grid-cols-5 grid-rows-2 gap-4'>
+                <div className='grid grid-cols-5 grid-rows-2 gap-5'>
                   {filteredProducts.map((itm, idx) => (
                     <ProductItem
                       key={idx}
@@ -75,7 +78,6 @@ function Menu() {
                     />
                   ))}
                 </div>
-                <button><FaChevronCircleRight size={25} /></button>
               </>
             )
             : <p className='text-center'>Tidak Ada Produk</p>

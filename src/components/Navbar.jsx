@@ -11,9 +11,10 @@ function Navbar() {
       </div>
       <nav className='flex items-center gap-x-4 *:text-sm *:font-semibold'>
         <a href="#">Home</a>
-        <a href="">About</a>
+        <a href="#">About</a>
         <a href="#menu">Menu</a>
-        <a href="">Contact</a>
+        <a href="#">Contact</a>
+        <a href="#">Sign In</a>
       </nav>
       <button type='button' className='p-1 shadow-md active:shadow-lg rounded-full cursor-pointer border-2 border-gray-300'><IoIosSearch size={23} /></button>
     </header>

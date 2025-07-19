@@ -3,7 +3,7 @@ import HomePage from "../pages/HomePage"
 
 function AppRouter() {
   return (
-    <BrowserRouter basename="/coffee">
+    <BrowserRouter basename="/coffee/">
         <Routes>
             <Route path="/" element={<HomePage />} />
         </Routes>

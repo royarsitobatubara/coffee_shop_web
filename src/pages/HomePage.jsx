@@ -1,15 +1,17 @@
-import React from 'react'
 import Navbar from '../components/Navbar'
-
-import { SiCoffeescript } from "react-icons/si"
 import Menu from '../components/Menu'
+import CustomerCommentItem from '../components/CustomerCommentItem'
+import { MdOutlineMail } from "react-icons/md"
+
+import handgetcoffee from '../assets/handgetcoffee.png'
+import spoongetcoffee from '../assets/spoongetcoffee.png'
 
 function HomePage() {
 
 
 
   return (
-    <div className='h-[300vh]'>
+    <div>
 
       {/* Header */}
       <Navbar />
@@ -26,6 +28,39 @@ function HomePage() {
 
       {/* Menu */}
       <Menu />
+
+      <div className='w-full py-10 flex items-center justify-between bg-[var(--white2)]'>
+        <img src={handgetcoffee} alt="pict" loading='eager' className='w-50' />
+        <div>
+          <h1 className='text-4xl font-bold text-[var(--primary)]'>Check out our best</h1>
+          <h1 className='text-4xl font-bold text-[var(--primary)]'>coffee betans</h1>
+          <button className='px-5 py-1 mt-5 bg-[var(--primary)] rounded-full text-sm text-white font-semibold cursor-pointer active:scale-95'>Check Out</button>
+        </div>
+        <img src={spoongetcoffee} alt="pict" loading='eager' className='w-50' />
+      </div>
+
+      <div className='flex flex-col items-center pt-20 pb-10'>
+        <i className='font-semibold text-[var(--primary)]'>Come And Join</i>
+        <h2 className='font-bold text-[var(--primary)] text-3xl'>Our Happy Customers</h2>
+        <div className='mt-10 flex gap-2'>
+          <CustomerCommentItem />
+          <CustomerCommentItem />
+          <CustomerCommentItem />
+        </div>
+      </div>
+
+      <div className='bg-[var(--white2)] items-center justify-center py-10 flex flex-col gap-2'>
+        <h1 className='text-3xl font-bold text-[var(--primary)]'>Join in and get 2% off!</h1>
+        <p className='text-[var(--primary)]'>Subscribe to our member and get 2% discound of coffee</p>
+        <div className='flex items-center gap-2 w-full justify-center'>
+          <div className='flex items-center px-4 gap-2 bg-[var(--white)] rounded-full py-1 w-[30%]'>
+            <MdOutlineMail size={20} />
+            <input type="email" placeholder='your email' className='h-full w-full outline-none border-none py-2' />
+          </div>
+          <button type='button' className='bg-[var(--primary)] px-6 py-2 h-full cursor-pointer active:scale-95 font-semibold text-white rounded-full'>Subscribe</button>
+        </div>
+      </div>
+
     </div>
   )
 }
